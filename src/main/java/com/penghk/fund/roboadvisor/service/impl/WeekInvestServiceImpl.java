@@ -1,8 +1,7 @@
 package com.penghk.fund.roboadvisor.service.impl;
 
 import com.penghk.fund.roboadvisor.service.WeekInvestService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
@@ -11,10 +10,9 @@ import org.springframework.stereotype.Service;
  * @Date: 2020/3/13 16:33
  */
 
+@Slf4j
 @Service
 public class WeekInvestServiceImpl implements WeekInvestService {
-
-    private static final Logger logger = LoggerFactory.getLogger(WeekInvestServiceImpl.class);
 
     /**
      *
@@ -33,7 +31,7 @@ public class WeekInvestServiceImpl implements WeekInvestService {
 
     @Scheduled(cron = "0/30 * * * * ?")
     public void weekReport() {
-        logger.info("hello");
+        log.info("hello");
     }
 
     public static void main(String[] args) {
