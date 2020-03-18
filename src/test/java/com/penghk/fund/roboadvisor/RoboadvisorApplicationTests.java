@@ -1,5 +1,6 @@
 package com.penghk.fund.roboadvisor;
 
+import com.penghk.fund.roboadvisor.entity.IndexDaily;
 import com.penghk.fund.roboadvisor.entity.IndexRequest;
 import com.penghk.fund.roboadvisor.entity.Request;
 import com.penghk.fund.roboadvisor.util.TushareUtils;
@@ -19,7 +20,7 @@ class RoboadvisorApplicationTests {
     @Test
     void getIndexDaily() {
 
-        IndexRequest indexRequest = IndexRequest.builder().tsCode("000300.SH").tradeDate("20200315").build();
+        IndexRequest indexRequest = IndexRequest.builder().tsCode("000300.SH").tradeDate("20200316").build();
 
         Request request = Request.builder()
                 .apiName(INDEX_DAILY)
@@ -28,7 +29,7 @@ class RoboadvisorApplicationTests {
                 .fields(INDEX_DAILY_FIELDS)
                 .build();
 
-        tushareUtils.getIndexDaily(request);
-
+        IndexDaily index = tushareUtils.getIndexDaily(request);
+        System.out.println(index);
     }
 }

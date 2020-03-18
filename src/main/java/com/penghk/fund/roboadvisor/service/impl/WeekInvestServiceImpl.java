@@ -31,7 +31,6 @@ public class WeekInvestServiceImpl implements WeekInvestService {
 
     @Scheduled(cron = "0/30 * * * * ?")
     public void weekReport() {
-        log.info("hello");
     }
 
     public static void main(String[] args) {

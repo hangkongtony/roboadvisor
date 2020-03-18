@@ -1,8 +1,10 @@
 package com.penghk.fund.roboadvisor.util;
 
 import com.alibaba.fastjson.JSON;
-import com.penghk.fund.roboadvisor.entity.Index;
+import com.alibaba.fastjson.JSONArray;
+import com.penghk.fund.roboadvisor.entity.IndexDaily;
 import com.penghk.fund.roboadvisor.entity.Request;
+import com.penghk.fund.roboadvisor.entity.Response;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -15,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 
 import static com.penghk.fund.roboadvisor.constant.AdvisorConsts.*;
 
@@ -35,8 +38,7 @@ public class TushareUtils {
     private RequestConfig requestConfig;
 
 
-    public Index getIndexDaily(Request request) {
-
+    private <T> T execute(Request request, ResponseCallBack<T> callBack) {
         HttpPost httpPost = new HttpPost(TUSHARE_DATA_URL);
         httpPost.setConfig(requestConfig);
 
@@ -44,7 +46,6 @@ public class TushareUtils {
         String requestStr = JSON.toJSONString(request);
         log.info("request : {}", requestStr);
         StringEntity entity = new StringEntity(requestStr, UTF8);
-//        entity.setContentEncoding(UTF8);
         entity.setContentType(JSON_CONTENT_TYPE);
         httpPost.setEntity(entity);
 
@@ -55,8 +56,7 @@ public class TushareUtils {
                 HttpEntity he = response.getEntity();
                 try {
                     String respContent = EntityUtils.toString(he, UTF8);
-                    //todo
-                    log.info("get response : {}", respContent);
+                    return callBack.parseResponse(respContent);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -67,6 +67,31 @@ public class TushareUtils {
         }
 
         return null;
+    }
+
+    public IndexDaily getIndexDaily(Request request) {
+
+            return execute(request, respContent -> {
+
+                log.info("get response : {}", respContent);
+                Response responses = JSON.parseObject(respContent, Response.class);
+
+                if (0 != responses.getCode()) {
+                    return null;
+                }
+                JSONArray item = (JSONArray) responses.getData().getItems().get(0);
+                String tsCode = (String) item.get(0);
+                BigDecimal close = (BigDecimal) item.get(1);
+                BigDecimal pct_chg = (BigDecimal) item.get(2);
+                return IndexDaily.builder().tsCode(tsCode).close(close).pctChg(pct_chg).build();
+            });
+
+    }
+
+
+    interface ResponseCallBack<T> {
+
+        T parseResponse(String respContent);
     }
 
 }

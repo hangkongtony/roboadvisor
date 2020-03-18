@@ -1,6 +1,6 @@
 package com.penghk.fund.roboadvisor.service;
 
-import com.penghk.fund.roboadvisor.entity.Index;
+import com.penghk.fund.roboadvisor.entity.IndexDaily;
 
 /**
  * @Author:hangkong.peng
@@ -16,7 +16,7 @@ public interface IndexMonitor {
      * @param endDate 结束日期
      * @return
      */
-    Index getIndexDaily(String txCode, String tradeDate, String startDate, String endDate);
+    IndexDaily getIndexDaily(String txCode, String tradeDate, String startDate, String endDate);
 
 
 
