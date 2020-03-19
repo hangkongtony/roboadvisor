@@ -1,8 +1,8 @@
 package com.penghk.fund.roboadvisor;
 
 import com.penghk.fund.roboadvisor.entity.IndexDaily;
-import com.penghk.fund.roboadvisor.entity.IndexRequest;
-import com.penghk.fund.roboadvisor.entity.Request;
+import com.penghk.fund.roboadvisor.tushare.IndexRequest;
+import com.penghk.fund.roboadvisor.tushare.Request;
 import com.penghk.fund.roboadvisor.util.TushareUtils;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +20,7 @@ class RoboadvisorApplicationTests {
     @Test
     void getIndexDaily() {
 
-        IndexRequest indexRequest = IndexRequest.builder().tsCode("000300.SH").tradeDate("20200316").build();
+        IndexRequest indexRequest = IndexRequest.builder().tsCode("000300.SH").tradeDate("20200318").build();
 
         Request request = Request.builder()
                 .apiName(INDEX_DAILY)

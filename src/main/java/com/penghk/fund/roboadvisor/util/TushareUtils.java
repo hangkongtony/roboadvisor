@@ -3,8 +3,8 @@ package com.penghk.fund.roboadvisor.util;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.penghk.fund.roboadvisor.entity.IndexDaily;
-import com.penghk.fund.roboadvisor.entity.Request;
-import com.penghk.fund.roboadvisor.entity.Response;
+import com.penghk.fund.roboadvisor.tushare.Request;
+import com.penghk.fund.roboadvisor.tushare.Response;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -79,11 +79,15 @@ public class TushareUtils {
                 if (0 != responses.getCode()) {
                     return null;
                 }
-                JSONArray item = (JSONArray) responses.getData().getItems().get(0);
-                String tsCode = (String) item.get(0);
-                BigDecimal close = (BigDecimal) item.get(1);
-                BigDecimal pct_chg = (BigDecimal) item.get(2);
-                return IndexDaily.builder().tsCode(tsCode).close(close).pctChg(pct_chg).build();
+                JSONArray items = responses.getData().getItems();
+                if (items.size() > 0) {
+                    JSONArray item = (JSONArray) items.get(0);
+                    String tsCode = (String) item.get(0);
+                    BigDecimal close = (BigDecimal) item.get(1);
+                    BigDecimal pctChg = (BigDecimal) item.get(2);
+                    return IndexDaily.builder().tsCode(tsCode).close(close).pctChg(pctChg).build();
+                }
+                return null;
             });
 
     }

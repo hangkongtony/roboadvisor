@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.penghk.fund.roboadvisor.mapper.IndexMapper">
+
+    <resultMap id="result" type="com.penghk.fund.roboadvisor.entity.Index">
+        <result property="id" column="id"/>
+        <result property="tsCode" column="ts_code"/>
+        <result property="name" column="name"/>
+        <result property="createTime" column="gmt_created"/>
+        <result property="lastUpdateTime" column="gmt_modified"/>
+        <result property="version" column="version"/>
+    </resultMap>
+
+    <sql id="sql_select">
+        SELECT id,
+               ts_code,
+               name,
+               gmt_created,
+               gmt_modified,
+               version
+        FROM `index`
+    </sql>
+
+    <select id="getIndexByTsCode" resultMap="result">
+                <include refid="sql_select"/>
+                where ts_code = #{0}
+    </select>
+
+    <!--    <select id="findByOrderNo" resultMap="result">-->
+    <!--        <include refid="sql_select"/>-->
+    <!--        WHERE SIGN_ORDER_NO = #{0}-->
+    <!--    </select>-->
+
+    <!--    <select id="findAll" resultMap="result">-->
+    <!--        <include refid="sql_select"/>-->
+    <!--    </select>-->
+
+    <!--    <select id="findById" resultMap="result">-->
+    <!--        <include refid="sql_select"/>-->
+    <!--        WHERE USER_SUBSCRIPTION_ID = #{id,javaType = java.lang.Long,jdbcType = BIGINT}-->
+    <!--    </select>-->
+
+    <!--    <insert id="insert"-->
+    <!--            parameterType="com.ximalaya.business.user.subscription.command.domain.entity.DraftUserSubscription"-->
+    <!--            useGeneratedKeys="true" keyProperty="id">-->
+    <!--        INSERT INTO SUB_DRAFT_USER_SUBSCRIPTION-->
+    <!--        (DOMAIN,-->
+    <!--         USER_ID,-->
+    <!--         DEVICE_ID,-->
+    <!--         CHANNEL_TYPE,-->
+    <!--         ITEM_ID,-->
+    <!--         SIGN_ORDER_NO,-->
+    <!--         GROUP_ID,-->
+    <!--         STATUS,-->
+    <!--         CREATE_TIME,-->
+    <!--         LAST_UPDATE_TIME,-->
+    <!--         VERSION,-->
+    <!--         CONTEXT,-->
+    <!--         SUB_ITEM_ID)-->
+    <!--        VALUES (#{domain},-->
+    <!--                #{userId},-->
+    <!--                #{deviceId},-->
+    <!--                #{channelTypeId},-->
+    <!--                #{itemId},-->
+    <!--                #{signOrderNo},-->
+    <!--                #{groupId},-->
+    <!--                #{statusId},-->
+    <!--                #{createTime},-->
+    <!--                #{lastUpdateTime},-->
+    <!--                #{version},-->
+    <!--                #{context},-->
+    <!--                #{subItemId})-->
+    <!--    </insert>-->
+
+    <!--    <delete id="delete" parameterType="com.ximalaya.business.user.subscription.command.domain.entity.UserSubscription">-->
+    <!--        DELETE FROM SUB_USER_SUBSCRIPTION-->
+    <!--        WHERE USER_SUBSCRIPTION_ID = #{id,javaType = java.lang.Long, jdbcType = BIGINT}-->
+    <!--    </delete>-->
+
+    <!--    <update id="update" parameterType="com.ximalaya.business.user.subscription.command.domain.entity.UserSubscription">-->
+    <!--        UPDATE-->
+    <!--            SUB_USER_SUBSCRIPTION-->
+    <!--        SET-->
+    <!--            DOMAIN               = #{domain},-->
+    <!--            USER_ID              = #{userId},-->
+    <!--            DEVICE_ID            = #{deviceId},-->
+    <!--            CHANNEL_TYPE         = #{channelTypeId},-->
+    <!--            ITEM_ID              = #{itemId},-->
+    <!--            SIGN_ORDER_NO        = #{signOrderNo},-->
+    <!--            NEXT_CHARGE_TIME     = #{nextChargeTime},-->
+    <!--            FIRST_CHARGE_TIME    = #{firstChargeTime},-->
+    <!--            TARGET_DATE          = #{targetDate},-->
+    <!--            GROUP_ID             = #{groupId},-->
+    <!--            STATUS               = #{statusId},-->
+    <!--            CREATE_TIME          = #{createTime},-->
+    <!--            LAST_UPDATE_TIME     = #{lastUpdateTime},-->
+    <!--            VERSION              = #{version}-->
+    <!--        WHERE USER_SUBSCRIPTION_ID = #{id} AND VERSION = #{version} - 1-->
+    <!--    </update>-->
+
+    <!--    <select id="findByDomainUserIdGroupId" resultMap="result">-->
+    <!--        <include refid="sql_select"/>-->
+    <!--        WHERE DOMAIN = #{0}-->
+    <!--        AND USER_ID = #{1}-->
+    <!--        AND GROUP_ID = #{2}-->
+    <!--        ORDER BY LAST_UPDATE_TIME DESC-->
+    <!--        LIMIT 1-->
+    <!--    </select>-->
+
+<!--    <select id="findByGroupId" resultMap="result">-->
+<!--        <include refid="sql_select"/>-->
+<!--        WHERE GROUP_ID = #{0}-->
+<!--        LIMIT 1-->
+<!--    </select>-->
+
+<!--    <select id="findByPartnerId" resultMap="result">-->
+<!--        <include refid="sql_select"/>-->
+<!--        WHERE PARTNER_ID = #{0}-->
+<!--        LIMIT 1-->
+<!--    </select>-->
+
+</mapper>

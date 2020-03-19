@@ -1,4 +1,4 @@
-package com.penghk.fund.roboadvisor.entity;
+package com.penghk.fund.roboadvisor.tushare;
 
 import com.alibaba.fastjson.annotation.JSONField;
 import lombok.AllArgsConstructor;

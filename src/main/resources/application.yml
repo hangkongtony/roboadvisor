@@ -1,4 +1,24 @@
+server:
+  port:8088
+
+#数据库配置
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/roboadvisor?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=UTC
+    username: root
+    password: 1234qwer
+
+#日志配置
 logging:
   config: classpath:logback.xml
   file:
-    path: ~/workspace/roboadvisor/
+    path: ~/workspace/fund/roboadvisor/
+
+# 钉钉通知配置
+weekInvest:
+    dingUrl: https://oapi.dingtalk.com/robot/send?access_token=6f8e52d48d0802714beffae9f27beb134dcbbbb5e82e5e47f14e392658d6c89b
+
+mybatis:
+  mapperLocations: classpath:mapper/*.xml
+  config-location: classpath:mybatis-config.xml
+  typeAliasesPackage: com.penghk.fund.roboadvisor.entity

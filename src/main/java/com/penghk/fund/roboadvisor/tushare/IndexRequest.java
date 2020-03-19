@@ -1,6 +1,7 @@
-package com.penghk.fund.roboadvisor.entity;
+package com.penghk.fund.roboadvisor.tushare;
 
 import com.alibaba.fastjson.annotation.JSONField;
+import com.penghk.fund.roboadvisor.tushare.RequestParams;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -15,7 +16,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class IndexRequest implements RequestParams{
+public class IndexRequest implements RequestParams {
 
     @JSONField(name = "ts_code")
     String tsCode;

@@ -1,4 +1,4 @@
-package com.penghk.fund.roboadvisor.entity;
+package com.penghk.fund.roboadvisor.tushare;
 
 /**
  * @Author:hangkong.peng

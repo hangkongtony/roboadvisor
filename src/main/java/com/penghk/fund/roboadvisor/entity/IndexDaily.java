@@ -24,24 +24,54 @@ public class IndexDaily {
      */
     private String tsCode;
 
+    /**
+     * 交易日
+     */
     private String tradeDate;
 
+    /**
+     * 收盘点位
+     */
     private BigDecimal close;
 
+    /**
+     * 开盘点位
+     */
     private BigDecimal open;
 
+    /**
+     * 最高点位
+     */
     private BigDecimal high;
 
+    /**
+     * 最低点位
+     */
     private BigDecimal low;
 
+    /**
+     * 昨日收盘点
+     */
     private BigDecimal preClose;
 
+    /**
+     * 涨跌点
+     */
     private BigDecimal change;
 
+    /**
+     * 涨跌幅（%）
+     */
     private BigDecimal pctChg;
 
+    /**
+     * 成交量（手）
+     */
     private BigDecimal vol;
 
+    /**
+     * 成交额（千元）
+     */
     private BigDecimal amount;
 
 
