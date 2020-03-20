@@ -1,6 +1,7 @@
 package com.penghk.fund.roboadvisor;
 
 import com.penghk.fund.roboadvisor.entity.IndexDaily;
+import com.penghk.fund.roboadvisor.service.impl.IndexMonitorImpl;
 import com.penghk.fund.roboadvisor.tushare.IndexRequest;
 import com.penghk.fund.roboadvisor.tushare.Request;
 import com.penghk.fund.roboadvisor.util.TushareUtils;
@@ -16,6 +17,16 @@ class RoboadvisorApplicationTests {
 
     @Autowired
     TushareUtils tushareUtils;
+
+
+    @Autowired
+    IndexMonitorImpl indexMonitor;
+
+    @Test
+    void fsa() {
+        indexMonitor.monitorIndexDaily();
+    }
+
 
     @Test
     void getIndexDaily() {

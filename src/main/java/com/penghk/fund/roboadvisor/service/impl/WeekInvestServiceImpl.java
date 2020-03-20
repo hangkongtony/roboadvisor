@@ -5,6 +5,7 @@ import com.penghk.fund.roboadvisor.entity.IndexDaily;
 import com.penghk.fund.roboadvisor.enums.TsCodeEnum;
 import com.penghk.fund.roboadvisor.service.IndexMonitor;
 import com.penghk.fund.roboadvisor.service.WeekInvestService;
+import com.penghk.fund.roboadvisor.util.DingDingUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -45,15 +46,14 @@ public class WeekInvestServiceImpl implements WeekInvestService {
 
 
     /**
-     * 每周二下午2:30计算每周应投资金额
+     * 每周二计算每周应投资金额
      */
-    @Scheduled(cron = "0 30 14 * * 3")
+    @Scheduled(cron = "0 30 10 * * 3")
     public void weekReport() {
 
         String txCode = TsCodeEnum.HS_300.getCode();
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
-
         LocalDate localDate = LocalDate.now().minusDays(1);
         String yesterday = formatter.format(localDate);
 
@@ -67,11 +67,11 @@ public class WeekInvestServiceImpl implements WeekInvestService {
         JSONObject contentJson = new JSONObject();
         contentJson.put("msgtype", "text");
         JSONObject textJsonObj = new JSONObject();
-        String contentValue = "小丁 : hello world";
+        String contentValue = "小丁 : 沪深300昨日收盘点位：【" + presentPoint + "】.基准点位4000，基准金额500. 本期投资金额【" + presentInvestStr + "】";
         textJsonObj.put("content", contentValue);
         contentJson.put("text", textJsonObj);
 
-//        DingDingUtil.sendDingDingNotify(dingUrl, contentJson);
+        DingDingUtil.sendDingDingNotify(dingUrl, contentJson);
 
     }
 
