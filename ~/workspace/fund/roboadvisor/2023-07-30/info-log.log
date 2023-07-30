@@ -1,0 +1,18 @@
+2023-07-30 08:49:39.425 [restartedMain] INFO  com.penghk.fund.roboadvisor.RoboadvisorApplication - Starting RoboadvisorApplication on XMITDN0504199.local with PID 8494 (/Users/hangkong.peng/Documents/workspace/roboadvisor/target/classes started by hangkong.peng in /Users/hangkong.peng/Documents/workspace/roboadvisor)
+2023-07-30 08:49:39.433 [restartedMain] INFO  com.penghk.fund.roboadvisor.RoboadvisorApplication - No active profile set, falling back to default profiles: default
+2023-07-30 08:49:39.490 [restartedMain] INFO  org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-07-30 08:49:39.491 [restartedMain] INFO  org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-07-30 08:49:40.741 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2023-07-30 08:49:40.747 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2023-07-30 08:49:40.748 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2023-07-30 08:49:40.748 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.31]
+2023-07-30 08:49:40.819 [restartedMain] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2023-07-30 08:49:40.820 [restartedMain] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1329 ms
+2023-07-30 08:49:41.785 [restartedMain] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2023-07-30 08:49:41.934 [restartedMain] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler - Initializing ExecutorService 'taskScheduler'
+2023-07-30 08:49:41.963 [restartedMain] INFO  org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2023-07-30 08:49:41.998 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2023-07-30 08:49:42.020 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2023-07-30 08:49:42.024 [restartedMain] INFO  com.penghk.fund.roboadvisor.RoboadvisorApplication - Started RoboadvisorApplication in 23.194 seconds (JVM running for 29.473)
+2023-07-30 08:50:05.839 [SpringContextShutdownHook] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler - Shutting down ExecutorService 'taskScheduler'
+2023-07-30 08:50:05.847 [SpringContextShutdownHook] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
