@@ -7,6 +7,8 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 /**
  * 开始重构
  * @date 2023/07/30
+ * access token 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
+ *
  */
 @SpringBootApplication
 @EnableScheduling
